@@ -191,7 +191,7 @@ Expected results: the first two requests land in the correct sheet with an AI sc
 
 ## About
 
-Built by **Sami Hussaini**, AI and workflow automation specialist.
+Built by **Muhammad Sami Ullah**, AI and workflow automation specialist.
 
 I build n8n automations for small businesses and B2B operations teams that eliminate manual data work, reduce response time, and keep sales pipelines clean without adding headcount.
 
