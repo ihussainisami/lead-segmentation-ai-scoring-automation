@@ -178,7 +178,7 @@ curl -X POST YOUR_WEBHOOK_URL \
     "name": "No Email",
     "phone": "+1-555-0102"
   }'
-```
+  ```
 
 Expected results: the first two requests land in the correct sheet with an AI score and the sales team gets an email. The third request gets logged to the incomplete leads sheet and returns a 400.
 
