@@ -2,7 +2,7 @@
 
 An n8n workflow that automatically receives, validates, classifies, and AI scores inbound leads from any web form, then routes them to the right Google Sheet and notifies your sales team instantly.
 
-![Workflow Overview](Lead_Segmentation_and_AI_Scoring_Automation_Workflow.png)
+![Workflow Diagram](./Lead%20Segmentation%20and%20AI%20Scoring%20Automation%20Workflow.png)
 
 ---
 
