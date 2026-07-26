@@ -122,7 +122,7 @@ Both the Personal and Business sheets use the same column schema.
 ## Setup Instructions
 
 ### 1. Import the Workflow
-Download `Lead_Segmentation___AI_Scoring.json` and import it into your n8n instance through **Workflows → Import from file**.
+Download `Lead Segmentation & AI Scoring.json` and import it into your n8n instance through **Workflows → Import from file**.
 
 ### 2. Configure Credentials
 You'll need to connect the following in n8n:
