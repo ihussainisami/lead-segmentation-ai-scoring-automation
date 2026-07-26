@@ -186,8 +186,7 @@ Expected results: the first two requests land in the correct sheet with an AI sc
 
 ## Workflow File
 
-[Lead_Segmentation___AI_Scoring.json](Lead_Segmentation___AI_Scoring.json)
-
+[Lead Segmentation & AI Scoring.json](./Lead%20Segmentation%20%26%20AI%20Scoring.json)
 ---
 
 ## About
