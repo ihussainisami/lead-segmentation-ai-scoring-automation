@@ -1,0 +1,710 @@
+{
+  "name": "Lead Segmentation & AI Scoring",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1aWzW6UIlf0KQV3Lr4lk4jWkyJJEhnTqE9KzzjauPXlI",
+          "mode": "list",
+          "cachedResultName": "Personal",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Personal",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $json.email }}",
+            "name ": "={{ $json.name }}",
+            "phone": "={{ $json.phone }}",
+            "Score": "={{ $json.score }}",
+            "LeadType": "={{ $json.leadType }}",
+            "Scored": "={{ $json.scored ? 'Yes' : 'No' }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "name ",
+              "displayName": "name ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Score",
+              "displayName": "Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LeadType",
+              "displayName": "LeadType",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Scored",
+              "displayName": "Scored",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        800,
+        -128
+      ],
+      "id": "",
+      "name": "Save to Personal Leads",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "10BEdZWG-byCfdjAF2oUoru--nVOybYq52gM4ERtjzY4",
+          "mode": "list",
+          "cachedResultName": "Business",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Business",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $json.email }}",
+            "name": "={{ $json.name }}",
+            "phone": "={{ $json.phone }}\n",
+            "Score": "={{ $json.score }}",
+            "LeadType": "={{ $json.leadType }}",
+            "Scored": "={{ $json.scored ? 'Yes' : 'No' }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Score",
+              "displayName": "Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LeadType",
+              "displayName": "LeadType",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Scored",
+              "displayName": "Scored",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        128
+      ],
+      "id": "",
+      "name": "Save to Business Leads",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "",
+        "subject": "=New Lead Alert: {{ $json.name }}",
+        "message": "=<p>Hi Team,</p>\n<p>A new lead has just been registered. Here are the details:</p>\n\n<p><strong>📌 Source:</strong> Website Contact Form</p>\n\n<div style=\"background-color: #f9f9f9; padding: 15px; border-left: 4px solid #4caf50; margin: 15px 0;\">\n    <p style=\"margin: 5px 0;\"><strong>👤 Name:</strong> {{ $('Merge Score + Lead Data').item.json.name }}</p>\n    <p style=\"margin: 5px 0;\"><strong>📧 Email:</strong> {{ $('Merge Score + Lead Data').item.json.email }}</p>\n    <p style=\"margin: 5px 0;\"><strong>📞 Phone:</strong> {{ $('Merge Score + Lead Data').item.json.phone }}</p>\n    <p style=\"margin: 5px 0;\"><strong>🏷️ Lead Type:</strong> {{ $('Merge Score + Lead Data').item.json.leadType }}</p>\n    <p style=\"margin: 5px 0;\">\n        <strong>⭐ AI Score:</strong> {{ $('Merge Score + Lead Data').item.json.score }}/10\n        {{ $('Merge Score + Lead Data').item.json.scored == false ? ' <span style=\"color: #d9534f; font-size: 12px; font-weight: bold;\">⚠️ Default score (AI was unavailable)</span>' : '' }}\n    </p>\n</div>\n\n<p style=\"margin-top: 20px; color: #d9534f; font-weight: bold;\">⚠️ Immediate Action Required:</p>\n<p>Please follow up with this lead within 24 hours.</p>\n\n<hr>\n<p style=\"font-size: 12px; color: #777; font-style: italic;\">This email was sent automatically via n8n Lead Automation</p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        496,
+        128
+      ],
+      "id": "",
+      "name": "Notify Sales Team",
+      "webhookId": "",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c50b800c-178b-41a7-8b94-36f0ace644bf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -496,
+        -80
+      ],
+      "id": "",
+      "name": "Receive Lead from Website",
+      "webhookId": "",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ----- 1. SAFE DATA EXTRACTION (Flatten) -----\nlet rawData = $input.first().json;\nlet bodyData = rawData.body || rawData.payload || rawData;\nlet email = bodyData.email || rawData.email;\nlet name = bodyData.name || rawData.name;\nlet phone = bodyData.phone || rawData.phone;\n\nif (!email) {\n    throw new Error('❌ Email is missing');\n}\n\n// ----- 2. DOMAIN CLASSIFICATION (Personal vs Business) -----\nconst freeDomains = [\n  'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', \n  'protonmail.com', 'aol.com', 'icloud.com', 'mail.com', \n  'yandex.com', 'zoho.com'\n];\n\nlet domain = email.split('@')[1]?.toLowerCase();\nif (!domain) throw new Error('Invalid email format');\n\nconst isPersonal = freeDomains.includes(domain);\n\n// ----- 3. RETURN CLEAN FLAT DATA -----\nreturn {\n  json: {\n    name: name,\n    email: email,\n    phone: phone,\n    leadType: isPersonal ? 'Personal' : 'Business'\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -64,
+        -96
+      ],
+      "id": "",
+      "name": "Classify Lead by Domain"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "",
+              "leftValue": "={{ $json.leadType }}",
+              "rightValue": "Personal",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        592,
+        -112
+      ],
+      "id": "",
+      "name": "Check if Lead is Personal"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "",
+              "leftValue": "={{ $json.body?.email || $json.payload?.email || $json.email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -288,
+        -80
+      ],
+      "id": "",
+      "name": "Validate Email Present"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "groqApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"llama-3.3-70b-versatile\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a lead scoring AI. Analyze the lead details and give a buying intent score from 1 to 10 (10 = highest intent). Return ONLY the single number. No explanations.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Name: {{ $json.name }}, Email: {{ $json.email }}, Phone: {{ $json.phone }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        144,
+        -96
+      ],
+      "id": "",
+      "name": "Score Lead via Groq AI",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "Header Auth account"
+        },
+        "groqApi": {
+          "id": "",
+          "name": "Groq account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const aiOutput = $input.first().json;\n\n// Log the full structure so you can see what Groq actually returned\nconsole.log(JSON.stringify(aiOutput));\n\nconst scoreText = aiOutput.choices?.[0]?.message?.content \n  || aiOutput?.body?.choices?.[0]?.message?.content \n  || '0';\n\nconst score = parseInt(scoreText.trim()) || 0;\nconst originalData = $('Classify Lead by Domain').item.json;\n\n// Check if AI actually returned a score (vs fallback)\nconst isScored = aiOutput.choices?.[0]?.message?.content ? true : false;\n\nreturn {\n  json: {\n    name: originalData.name,\n    email: originalData.email,\n    phone: originalData.phone,\n    leadType: originalData.leadType,\n    score: score,\n    scored: isScored  // <-- YE LINE ADD KARI HAI\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        368,
+        -112
+      ],
+      "id": "",
+      "name": "Merge Score + Lead Data"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"error\": \"Email is required\"\n}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        -288,
+        128
+      ],
+      "id": "",
+      "name": "Return 400 — Email Missing"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"status\": \"success\",\n  \"message\": \"Lead processed, scored, and saved successfully.\"\n}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        784,
+        128
+      ],
+      "id": "",
+      "name": "Return 200 — Lead Processed"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "19aH5K6FV94sBXDXGrGfu2wRtzQM7Iv2E3Ep4bYOz638",
+          "mode": "list",
+          "cachedResultName": "Incomplete Lead",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Incomplete Lead",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $json.body?.name || $json.payload?.name || $json.name }}",
+            "phone": "={{ $json.body?.phone || $json.payload?.phone || $json.phone }}",
+            "timestamp": "={{ new Date().toISOString() }}",
+            "reason": "=\"Email missing\"",
+            "raw_data": "={{ JSON.stringify($json) }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "reason",
+              "displayName": "reason",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "raw_data",
+              "displayName": "raw_data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -480,
+        128
+      ],
+      "id": "",
+      "name": "Save Incomplete Lead",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get original data from Classify node\nconst originalData = $('Classify Lead by Domain').item.json;\n\n// If AI failed, set default score = 5 (average intent)\nreturn {\n  json: {\n    name: originalData.name,\n    email: originalData.email,\n    phone: originalData.phone,\n    leadType: originalData.leadType,\n    score: 5,  // fallback score\n    scored: false  // flag ke AI fail hua\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        112
+      ],
+      "id": "",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {
+    "Receive Lead from Website": [
+      {
+        "json": {
+          "name": "",
+          "phone": "",
+          "email": ""
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Save to Personal Leads": {
+      "main": [
+        [
+          {
+            "node": "Notify Sales Team",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save to Business Leads": {
+      "main": [
+        [
+          {
+            "node": "Notify Sales Team",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Receive Lead from Website": {
+      "main": [
+        [
+          {
+            "node": "Validate Email Present",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Lead by Domain": {
+      "main": [
+        [
+          {
+            "node": "Score Lead via Groq AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check if Lead is Personal": {
+      "main": [
+        [
+          {
+            "node": "Save to Personal Leads",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save to Business Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify Sales Team": {
+      "main": [
+        [
+          {
+            "node": "Return 200 — Lead Processed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Email Present": {
+      "main": [
+        [
+          {
+            "node": "Classify Lead by Domain",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save Incomplete Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Score Lead via Groq AI": {
+      "main": [
+        [
+          {
+            "node": "Merge Score + Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Score + Lead Data": {
+      "main": [
+        [
+          {
+            "node": "Check if Lead is Personal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return 400 — Email Missing": {
+      "main": [
+        []
+      ]
+    },
+    "Save Incomplete Lead": {
+      "main": [
+        [
+          {
+            "node": "Return 400 — Email Missing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Check if Lead is Personal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": true,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "wLgJ99Yj9tcfYfij",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": ""
+  },
+  "nodeGroups": [],
+  "id": "",
+  "tags": []
+}
